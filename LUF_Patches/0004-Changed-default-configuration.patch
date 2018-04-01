@@ -1,0 +1,109 @@
+From 6fc9be175adc9fcbeacd7aee096f75f86a6815ef Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:02:03 +0100
+Subject: [PATCH 04/36] Changed default configuration
+
+---
+ modules/Options.lua | 60 ++++++++++++++++++++++++++---------------------------
+ 1 file changed, 30 insertions(+), 30 deletions(-)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index 36acae3..531ce7d 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -170,53 +170,53 @@ function LunaOptionsModule:ResetSettings()
+ 	LunaOptions.icontexture = LunaUnitFrames.addonPath .. "\\media\\icon"
+ 	LunaOptions.resIcon = LunaUnitFrames.addonPath .. "\\media\\Raid-Icon-Rez"
+ 	LunaOptions.indicator = LunaUnitFrames.addonPath .. "\\media\\indicator"
+-		
+-	LunaOptions.frames = {	["LunaPlayerFrame"] = {position = {x = 10, y = -20}, size = {x = 240, y = 40}, scale = 1, enabled = 1, ShowBuffs = 1, portrait = 2, pvprankicon = 1, leadericon = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}, {"Castbar", 3}, {"Druidbar", 0}, {"Totembar", 0}}},
+-							["LunaTargetFrame"] = {position = {x = 280, y = -20}, size = {x = 240, y = 40}, scale = 1, enabled = 1, ShowBuffs = 3, portrait = 2, pvprankicon = 1, leadericon = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}, {"Castbar", 3}, {"Combo Bar", 2}}},
+-							["LunaTargetTargetFrame"] = {position = {x = 550, y = -20}, size = {x = 150, y = 40}, scale = 1, enabled = 1, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+-							["LunaTargetTargetTargetFrame"] = {position = {x = 730, y = -20}, size = {x = 150, y = 40}, scale = 1, enabled = 1, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+-							["LunaPartyFrames"] = {position = {x = 10, y = -140}, size = {x = 200, y = 40}, scale = 1, enabled = 1, ShowBuffs = 3, portrait = 2, pvprankicon = 1, leadericon = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+-							["LunaPartyPetFrames"] = {position = "RIGHT", size = {x = 110, y = 19}, scale = 1, enabled = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
++
++	LunaOptions.frames = {	["LunaPlayerFrame"] = {position = {x = -163, y = 85}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 0, pvprankicon = 1, leadericon = 1, bars = {{"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Druidbar", 0}, {"Totembar", 0}}},
++							["LunaTargetFrame"] = {position = {x = 163, y = 85}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 0, pvprankicon = 1, leadericon = 1, bars = {{"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Combo Bar", 1}}},
++							["LunaTargetTargetFrame"] = {position = {x = 0, y = 85}, size = {x = 120, y = 20}, scale = 1, enabled = 1, portrait = 0, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 0}}},
++							["LunaTargetTargetTargetFrame"] = {position = {x = 730, y = -20}, size = {x = 150, y = 40}, scale = 1, enabled = 0, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
++							["LunaPartyFrames"] = {position = {x = 20, y = -100}, size = {x = 125, y = 30}, scale = 1, enabled = 1, ShowBuffs = 3, portrait = 0, pvprankicon = 1, leadericon = 1, bars = {{"Healthbar", 6}, {"Powerbar", 2}}},
++							["LunaPartyPetFrames"] = {position = "RIGHT", size = {x = 110, y = 10}, scale = 1, enabled = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+ 							["LunaPartyTargetFrames"] = {position = "RIGHT", size = {x = 110, y = 19}, scale = 1, enabled = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+-							["LunaPetFrame"] = {position = {x = 10, y = -70}, size = {x = 240, y = 30}, scale = 1, enabled = 1, ShowBuffs = 3, portrait = 2, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
++							["LunaPetFrame"] = {position = {x = 0, y = 113}, size = {x = 120, y = 30}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 0, bars = {{"Healthbar", 4}, {"Powerbar", 1}}},
+ 							["LunaRaidFrames"] = {
+ 								["pBars"] = 1,
+-								["scale"] = 1,
+-								["padding"] = 4,
+-								["height"] = 30,
+-								["width"] = 60,
++								["scale"] = 0.75,
++								["padding"] = 10,
++								["height"] = 35,
++								["width"] = 65,
+ 								["positions"] = {
+ 									[1] = {
+-										["x"] = 400,
+-										["y"] = -400,
++										["x"] = 25,
++										["y"] = 225,
+ 									},
+ 									[2] = {
+-										["x"] = 400,
+-										["y"] = -400,
++										["x"] = 25,
++										["y"] = 450,
+ 									},
+ 									[3] = {
+-										["x"] = 400,
+-										["y"] = -400,
++										["x"] = 100,
++										["y"] = 225,
+ 									},
+ 									[4] = {
+-										["x"] = 400,
+-										["y"] = -400,
++										["x"] = 100,
++										["y"] = 450,
+ 									},
+ 									[5] = {
+-										["x"] = 400,
+-										["y"] = -400,
++										["x"] = 175,
++										["y"] = 225,
+ 									},
+ 									[6] = {
+-										["x"] = 400,
+-										["y"] = -400,
++										["x"] = 175,
++										["y"] = 450,
+ 									},
+ 									[7] = {
+-										["x"] = 400,
+-										["y"] = -400,
++										["x"] = 250,
++										["y"] = 225,
+ 									},
+ 									[8] = {
+-										["x"] = 400,
+-										["y"] = -400,
++										["x"] = 250,
++										["y"] = 450,
+ 									},
+ 								},
+ 							},
+@@ -235,8 +235,8 @@ function LunaOptionsModule:ResetSettings()
+ 	LunaOptions.hideBlizzCastbar = 1
+ 	LunaOptions.PartyRange = 1
+ 	LunaOptions.RaidRange = 1
+-	LunaOptions.XPBar = 1
+-	LunaOptions.PartySpace = 40
++	LunaOptions.XPBar = 0
++	LunaOptions.PartySpace = 20
+ 	LunaOptions.VerticalParty = 1
+ 	LunaOptions.Raidbuff = ""
+ 	LunaOptions.DruidBar = nil
+-- 
+2.8.1
+

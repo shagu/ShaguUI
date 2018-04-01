@@ -1,0 +1,28 @@
+From 04fa19851fc8a380052e5c0ca788d8b3d943d11e Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sun, 6 Dec 2015 14:10:55 +0100
+Subject: [PATCH 21/36] Made Hot tracker configurable
+
+---
+ modules/Options.lua | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index 95cf3c0..b79b6e9 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -286,6 +286,11 @@ function LunaOptionsModule:ResetSettings()
+ 	else
+ 		LunaOptions.aggro = 0
+ 	end
++	if ShaguUIconfig["enableHotTracker"] then
++		LunaOptions.frames["LunaRaidFrames"].hottracker = 1
++	else
++		LunaOptions.frames["LunaRaidFrames"].hottracker = 0
++	end
+ 	LunaOptions.PartyRange = 1
+ 	LunaOptions.RaidRange = 1
+ 	LunaOptions.XPBar = 0
+-- 
+2.8.1
+

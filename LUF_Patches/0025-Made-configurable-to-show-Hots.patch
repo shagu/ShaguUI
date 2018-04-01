@@ -1,0 +1,45 @@
+From 3b9765c42f7a93d7321d15c7eb72757652fe3b4b Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 12 Dec 2015 03:27:09 +0100
+Subject: [PATCH 25/36] Made configurable to show Hots
+
+---
+ modules/Raid.lua | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
+
+diff --git a/modules/Raid.lua b/modules/Raid.lua
+index 1b48aa4..c34df20 100644
+--- a/modules/Raid.lua
++++ b/modules/Raid.lua
+@@ -898,8 +898,26 @@ function LunaUnitFrames.Raid_Aura(unitid)
+ 		end
+ 	end
+ 	
+-
+-	if LunaOptions.frames["LunaRaidFrames"].hottracker and PlayerClass == "PRIEST" then
++	if ShaguUIconfig["enableHotTracker"] == true then
++		if LunaOptions.frames["LunaRaidFrames"].centerIcon then
++			this.centericons[3]:Hide()
++		else
++			this.centericons[1]:Hide()
++		end
++		for i=1,32 do
++			local texture = UnitBuff(this.unit,i)
++			if texture == "Interface\\Icons\\Spell_Holy_Renew" then
++      	this.centericons[3]:Show()
++        this.centericons[3].texture:SetTexture(texture)
++      elseif texture == "Interface\\Icons\\Spell_Nature_ResistNature" then
++      	this.centericons[2]:Show()
++        this.centericons[2].texture:SetTexture(texture)
++      elseif texture == "Interface\\Icons\\Spell_Nature_Rejuvenation" then
++				this.centericons[1]:Show()
++				this.centericons[1].texture:SetTexture(texture)
++			end
++		end
++	elseif LunaOptions.frames["LunaRaidFrames"].hottracker and PlayerClass == "PRIEST" then
+ 		if LunaOptions.frames["LunaRaidFrames"].centerIcon then
+ 			this.centericons[3]:Hide()
+ 		else
+-- 
+2.8.1
+

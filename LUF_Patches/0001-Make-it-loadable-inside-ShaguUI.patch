@@ -1,0 +1,28 @@
+From 4ef576e22ee170460f9abec94c6c440a86e57447 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 04:54:36 +0100
+Subject: [PATCH 01/36] Make it loadable inside ShaguUI
+
+---
+ LunaUnitFrames.lua | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/LunaUnitFrames.lua b/LunaUnitFrames.lua
+index 853b97a..1940d2f 100644
+--- a/LunaUnitFrames.lua
++++ b/LunaUnitFrames.lua
+@@ -133,9 +133,9 @@ function Luna_OnClick()
+ end
+ 
+ function LunaUnitFrames:OnEvent()
+-	if event == "ADDON_LOADED" and (string.lower(arg1) == "lunaunitframes" or string.lower(arg1) == "lunaunitframes-master") then
++	if event == "ADDON_LOADED" and arg1 == "ShaguUI" then
+ 
+-		LunaUnitFrames.addonPath = "Interface\\AddOns\\" .. arg1
++		LunaUnitFrames.addonPath = "Interface\\AddOns\\ShaguUI\\libs\\LunaUnitFrames"
+ 
+ 		if LunaOptions == nil then
+ 			LunaOptionsModule:ResetSettings()
+-- 
+2.8.1
+

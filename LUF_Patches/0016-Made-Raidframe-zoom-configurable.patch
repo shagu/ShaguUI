@@ -1,0 +1,63 @@
+From e2648d7fb66521b5ef460bfa9cac4c7f66a68f54 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:03:38 +0100
+Subject: [PATCH 16/36] Made Raidframe zoom configurable
+
+---
+ modules/Options.lua | 40 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 40 insertions(+)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index 7bcaf83..fe0b2f6 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -221,6 +221,46 @@ function LunaOptionsModule:ResetSettings()
+ 								},
+ 							},
+ 						}
++
++	if ShaguUIconfig["enableZoomedRaid"] then
++		LunaOptions.frames["LunaRaidFrames"]["scale"] = 0.8
++		LunaOptions.frames["LunaRaidFrames"]["positions"] = {
++			[1] = {
++				["x"] = 25,
++				["y"] = 200,
++			},
++			[2] = {
++				["x"] = 25,
++				["y"] = 425,
++			},
++			[3] = {
++				["x"] = 100,
++				["y"] = 200,
++			},
++			[4] = {
++				["x"] = 100,
++				["y"] = 425,
++			},
++			[5] = {
++				["x"] = 175,
++				["y"] = 200,
++			},
++			[6] = {
++				["x"] = 175,
++				["y"] = 425,
++			},
++			[7] = {
++				["x"] = 250,
++				["y"] = 200,
++			},
++			[8] = {
++				["x"] = 250,
++				["y"] = 425,
++			}
++		}
++	end
++
++
+ 	LunaOptions.clickcast = {
+ 							{"target","menu","","",""},
+ 							{"","","","",""},
+-- 
+2.8.1
+

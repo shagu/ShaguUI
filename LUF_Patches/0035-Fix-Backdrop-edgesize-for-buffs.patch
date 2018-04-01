@@ -1,0 +1,55 @@
+From aff45d590b1ac3817e0be2c2c56dfd254827051b Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Tue, 8 Mar 2016 14:13:26 +0100
+Subject: [PATCH 35/36] Fix Backdrop edgesize for buffs
+
+---
+ modules/Player.lua | 8 +++++++-
+ modules/Target.lua | 8 +++++++-
+ 2 files changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/modules/Player.lua b/modules/Player.lua
+index 71c8864..2b7a3ad 100644
+--- a/modules/Player.lua
++++ b/modules/Player.lua
+@@ -1198,9 +1198,15 @@ function Luna_Player_Events:PLAYER_AURAS_CHANGED()
+ 		end
+ 		-- use nice borders around buffs
+ 		LunaPlayerFrame.Buffs[i]:SetNormalTexture(nil)
++		if LunaPlayerFrame.Buffs[i]:GetWidth() <= 16 then
++			LunaBuffEdgeSize = LunaPlayerFrame.Buffs[i]:GetWidth()
++		else
++			LunaBuffEdgeSize = 16
++		end
++
+ 		LunaPlayerFrame.Buffs[i]:SetBackdrop({
+ 			bgFile = LunaPlayerFrame.Buffs[i].texturepath, tile = false, tileSize = LunaPlayerFrame.Buffs[i]:GetWidth(),
+-			edgeFile = "Interface\\AddOns\\ShaguUI\\img\\border", edgeSize = LunaPlayerFrame.Buffs[i]:GetWidth(),
++			edgeFile = "Interface\\AddOns\\ShaguUI\\img\\border", edgeSize = LunaBuffEdgeSize,
+ 			insets = {left = 0, right = 0, top = 0, bottom = 0},
+ 		})
+ 	end
+diff --git a/modules/Target.lua b/modules/Target.lua
+index cb6d34a..ed8cb24 100644
+--- a/modules/Target.lua
++++ b/modules/Target.lua
+@@ -853,9 +853,15 @@ function Luna_Target_Events:UNIT_AURA()
+ 		end
+ 		-- use nice borders around buffs
+ 		LunaTargetFrame.Buffs[i]:SetNormalTexture(nil)
++		if LunaTargetFrame.Buffs[i]:GetWidth() <= 16 then
++			LunaBuffEdgeSize = LunaTargetFrame.Buffs[i]:GetWidth()
++		else
++			LunaBuffEdgeSize = 16
++		end
++
+ 		LunaTargetFrame.Buffs[i]:SetBackdrop({
+ 			bgFile = LunaTargetFrame.Buffs[i].texturepath, tile = false, tileSize = LunaTargetFrame.Buffs[i]:GetWidth(),
+-			edgeFile = "Interface\\AddOns\\ShaguUI\\img\\border", edgeSize = LunaTargetFrame.Buffs[i]:GetWidth(),
++			edgeFile = "Interface\\AddOns\\ShaguUI\\img\\border", edgeSize = LunaBuffEdgeSize,
+ 			insets = {left = 0, right = 0, top = 0, bottom = 0},
+ 		})
+ 	end
+-- 
+2.8.1
+

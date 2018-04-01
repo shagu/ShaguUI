@@ -1,0 +1,25 @@
+From b69974327fe4471083a50cb44e4b1a454374d86a Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:08:21 +0100
+Subject: [PATCH 05/36] Changed Pet frame position
+
+---
+ modules/Pet.lua | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/modules/Pet.lua b/modules/Pet.lua
+index b317fcd..bd55214 100644
+--- a/modules/Pet.lua
++++ b/modules/Pet.lua
+@@ -49,7 +49,7 @@ function LunaUnitFrames:CreatePetFrame()
+ 	LunaPetFrame:SetScale(LunaOptions.frames["LunaPetFrame"].scale)
+ 	LunaPetFrame:SetBackdrop(LunaOptions.backdrop)
+ 	LunaPetFrame:SetBackdropColor(0,0,0,1)
+-	LunaPetFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", LunaOptions.frames["LunaPetFrame"].position.x, LunaOptions.frames["LunaPetFrame"].position.y)
++	LunaPetFrame:SetPoint("BOTTOM", UIParent, "BOTTOM", LunaOptions.frames["LunaPetFrame"].position.x, LunaOptions.frames["LunaPetFrame"].position.y)
+ 	LunaPetFrame:RegisterForClicks('LeftButtonUp', 'RightButtonUp', 'MiddleButtonUp', 'Button4Up', 'Button5Up')
+ 	LunaPetFrame.unit = "pet"
+ 	LunaPetFrame:SetScript("OnEnter", UnitFrame_OnEnter)
+-- 
+2.8.1
+

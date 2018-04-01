@@ -1,0 +1,28 @@
+From 94c711bf9f6d7c4f6f40d01eca0a5bb08ff15bf8 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sun, 6 Dec 2015 14:08:01 +0100
+Subject: [PATCH 20/36] Made Aggro display configurable
+
+---
+ modules/Options.lua | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index 6ecec8c..95cf3c0 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -281,6 +281,11 @@ function LunaOptionsModule:ResetSettings()
+ 	else
+ 		LunaOptions.hideBlizzCastbar = 1
+ 	end
++	if ShaguUIconfig["enableShowAggro"] then
++		LunaOptions.aggro = 1
++	else
++		LunaOptions.aggro = 0
++	end
+ 	LunaOptions.PartyRange = 1
+ 	LunaOptions.RaidRange = 1
+ 	LunaOptions.XPBar = 0
+-- 
+2.8.1
+

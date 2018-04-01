@@ -1,0 +1,62 @@
+From 3ba25b2a6063eab407d546f8b4d748a2311e2dd8 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 12 Dec 2015 18:13:11 +0100
+Subject: [PATCH 29/36] Added Raidicons, Leadericons, ...
+
+---
+ modules/Options.lua | 25 +++++++++++++++++++++----
+ 1 file changed, 21 insertions(+), 4 deletions(-)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index 09b125c..04c5701 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -171,11 +171,11 @@ function LunaOptionsModule:ResetSettings()
+ 	LunaOptions.resIcon = LunaUnitFrames.addonPath .. "\\media\\Raid-Icon-Rez"
+ 	LunaOptions.indicator = LunaUnitFrames.addonPath .. "\\media\\indicator"
+ 
+-	LunaOptions.frames = {	["LunaPlayerFrame"] = {position = {x = -163, y = 85}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 0, pvprankicon = 1, leadericon = 1, bars = {{"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Druidbar", 0}, {"Totembar", 0}}},
+-							["LunaTargetFrame"] = {position = {x = 163, y = 85}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 0, pvprankicon = 1, leadericon = 1, bars = {{"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Combo Bar", 1}}},
++	LunaOptions.frames = {	["LunaPlayerFrame"] = {position = {x = -163, y = 85}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0}, {"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Druidbar", 0}, {"Totembar", 0}}},
++							["LunaTargetFrame"] = {position = {x = 163, y = 85}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0},{"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Combo Bar", 1}}},
+ 							["LunaTargetTargetFrame"] = {position = {x = 0, y = 85}, size = {x = 120, y = 20}, scale = 1, enabled = 1, portrait = 0, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 0}}},
+ 							["LunaTargetTargetTargetFrame"] = {position = {x = 730, y = -20}, size = {x = 150, y = 40}, scale = 1, enabled = 0, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+-							["LunaPartyFrames"] = {position = {x = 20, y = -100}, size = {x = 125, y = 30}, scale = 1, enabled = 1, ShowBuffs = 3, portrait = 0, pvprankicon = 1, leadericon = 1, bars = {{"Healthbar", 6}, {"Powerbar", 2}}},
++							["LunaPartyFrames"] = {position = {x = 20, y = -100}, size = {x = 125, y = 30}, scale = 1, enabled = 1, ShowBuffs = 3, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0},{"Healthbar", 6}, {"Powerbar", 1}}},
+ 							["LunaPartyPetFrames"] = {position = "RIGHT", size = {x = 110, y = 10}, scale = 1, enabled = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+ 							["LunaPartyTargetFrames"] = {position = "RIGHT", size = {x = 110, y = 19}, scale = 1, enabled = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+ 							["LunaPetFrame"] = {position = {x = 0, y = 113}, size = {x = 120, y = 30}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 0, bars = {{"Healthbar", 4}, {"Powerbar", 1}}},
+@@ -339,6 +339,23 @@ function LunaOptionsModule:ResetSettings()
+ 	LunaOptions.DruidBar = nil
+ 	LunaOptions.TotemBar = nil
+ 	LunaOptions.BTimers = 0
++
++	LunaOptions.frames["LunaPlayerFrame"].combattext = nil
++	LunaOptions.frames["LunaPlayerFrame"].combaticon = 1
++	LunaOptions.frames["LunaPlayerFrame"].leadericon = 1
++	LunaOptions.frames["LunaPlayerFrame"].looticon = nil
++	LunaOptions.frames["LunaPlayerFrame"].pvprankicon = nil
++
++
++	LunaOptions.frames["LunaTargetFrame"].combattext = nil
++	LunaOptions.frames["LunaTargetFrame"].leadericon = 1
++	LunaOptions.frames["LunaTargetFrame"].looticon = nil
++	LunaOptions.frames["LunaTargetFrame"].pvprankicon = nil
++
++	LunaOptions.frames["LunaPartyFrames"].leadericon = 1
++	LunaOptions.frames["LunaPartyFrames"].looticon = nil
++	LunaOptions.frames["LunaPartyFrames"].pvprankicon = nil
++
+ end
+ 
+ local OptionFunctions = {}
+@@ -3515,4 +3532,4 @@ function LunaUnitFrames:UpdateBarFonts()
+ 	
+ 	-- Raid
+ 	LunaUnitFrames:SetRaidFrameSize()
+-end
+\ No newline at end of file
++end
+-- 
+2.8.1
+

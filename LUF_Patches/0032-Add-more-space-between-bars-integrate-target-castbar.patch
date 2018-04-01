@@ -1,0 +1,112 @@
+From 6acc23d3f9a484159d0457bcc8e6524912218251 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Tue, 8 Mar 2016 11:12:21 +0100
+Subject: [PATCH 32/36] Add more space between bars, integrate target castbar,
+ buffs
+
+---
+ modules/Player.lua | 12 +++++++++---
+ modules/Target.lua | 26 ++++++++++++++++++++++----
+ 2 files changed, 31 insertions(+), 7 deletions(-)
+
+diff --git a/modules/Player.lua b/modules/Player.lua
+index 152b649..3fb86a7 100644
+--- a/modules/Player.lua
++++ b/modules/Player.lua
+@@ -732,9 +732,9 @@ function LunaUnitFrames:CreatePlayerFrame()
+ 			
+ 			if not firstbar and LunaPlayerFrame.bars[bar]:IsShown() then
+ 				if v[1] == "Castbar" then
+-					LunaPlayerFrame.bars[bar]:SetPoint("TOPLEFT", LunaPlayerFrame.bars["Healthbar"], "BOTTOMLEFT", 0, -1)
++					LunaPlayerFrame.bars[bar]:SetPoint("TOPLEFT", LunaPlayerFrame.bars["Healthbar"], "BOTTOMLEFT", 0, -5)
+ 				else
+-					LunaPlayerFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -1)
++					LunaPlayerFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -5)
+ 				end
+ 				anchor = {"TOPLEFT", LunaPlayerFrame.bars[bar], "BOTTOMLEFT"}
+ 			elseif LunaPlayerFrame.bars[bar]:IsShown() then
+@@ -1196,7 +1196,13 @@ function Luna_Player_Events:PLAYER_AURAS_CHANGED()
+ 				pos = i
+ 			end
+ 		end
+-		LunaPlayerFrame.Buffs[i]:SetNormalTexture(LunaPlayerFrame.Buffs[i].texturepath)
++		-- use nice borders around buffs
++		LunaPlayerFrame.Buffs[i]:SetNormalTexture(nil)
++		LunaPlayerFrame.Buffs[i]:SetBackdrop({
++			bgFile = LunaPlayerFrame.Buffs[i].texturepath, tile = false, tileSize = LunaPlayerFrame.Buffs[i]:GetWidth(),
++			edgeFile = "Interface\\AddOns\\ShaguUI\\img\\border", edgeSize = LunaPlayerFrame.Buffs[i]:GetWidth(),
++			insets = {left = 0, right = 0, top = 0, bottom = 0},
++		})
+ 	end
+ 	if not pos then
+ 		pos = 17
+diff --git a/modules/Target.lua b/modules/Target.lua
+index f79b24a..5c9ebae 100644
+--- a/modules/Target.lua
++++ b/modules/Target.lua
+@@ -470,6 +470,8 @@ function LunaUnitFrames:CreateTargetFrame()
+ 			textbalance[v[1]] = v[6] or 0.5
+ 		end
+ 		if ((LunaTargetFrame.bars["Castbar"].casting or LunaTargetFrame.bars["Castbar"].channeling) and CastBarHeightWeight > 0) then
++			LunaTargetFrame.bars["Powerbar"].righttext:Hide()
++			LunaTargetFrame.bars["Powerbar"].lefttext:Hide()
+ 			LunaTargetFrame.bars["Castbar"]:Show()
+ 		elseif LunaOptions.statictargetcastbar then
+ 			LunaTargetFrame.bars["Castbar"]:Show()
+@@ -478,6 +480,8 @@ function LunaUnitFrames:CreateTargetFrame()
+ 			LunaTargetFrame.bars["Castbar"]:SetMinMaxValues(0,1)
+ 			LunaTargetFrame.bars["Castbar"]:SetValue(0)
+ 		else
++			LunaTargetFrame.bars["Powerbar"].righttext:Show()
++			LunaTargetFrame.bars["Powerbar"].lefttext:Show()
+ 			LunaTargetFrame.bars["Castbar"]:Hide()
+ 		end
+ 		if ( comboPoints == 0 ) then
+@@ -502,7 +506,7 @@ function LunaUnitFrames:CreateTargetFrame()
+ 			anchor = {"TOPLEFT", LunaTargetFrame, "TOPLEFT"}
+ 		end
+ 		for k,v in pairs(LunaOptions.frames["LunaTargetFrame"].bars) do
+-			if LunaTargetFrame.bars[v[1]]:IsShown() then
++			if LunaTargetFrame.bars[v[1]]:IsShown() and v[1] ~= "Castbar" then
+ 				totalWeight = totalWeight + v[2]
+ 				gaps = gaps + 1
+ 			end
+@@ -519,10 +523,18 @@ function LunaUnitFrames:CreateTargetFrame()
+ 			LunaTargetFrame.bars[bar].weight = v[2]
+ 			
+ 			if not firstbar and LunaTargetFrame.bars[bar]:IsShown() then
+-				LunaTargetFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -1)
++				if v[1] == "Castbar" then
++					LunaTargetFrame.bars[bar]:SetPoint("TOPLEFT", LunaTargetFrame.bars["Healthbar"], "BOTTOMLEFT", 0, -5)
++				else
++					LunaTargetFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -5)
++				end
+ 				anchor = {"TOPLEFT", LunaTargetFrame.bars[bar], "BOTTOMLEFT"}
+ 			elseif LunaTargetFrame.bars[bar]:IsShown() then
+-				LunaTargetFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3])
++				if v[1] == "Castbar" then
++					LunaTargetFrame.bars[bar]:SetPoint("TOPLEFT", LunaTargetFrame.bars["Healthbar"], "BOTTOMLEFT")
++				else
++					LunaTargetFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3])
++				end
+ 				firstbar = nil
+ 				anchor = {"TOPLEFT", LunaTargetFrame.bars[bar], "BOTTOMLEFT"}
+ 			end			
+@@ -839,7 +851,13 @@ function Luna_Target_Events:UNIT_AURA()
+ 				pos = i
+ 			end
+ 		end
+-		LunaTargetFrame.Buffs[i]:SetNormalTexture(LunaTargetFrame.Buffs[i].texturepath)
++		-- use nice borders around buffs
++		LunaTargetFrame.Buffs[i]:SetNormalTexture(nil)
++		LunaTargetFrame.Buffs[i]:SetBackdrop({
++			bgFile = LunaTargetFrame.Buffs[i].texturepath, tile = false, tileSize = LunaTargetFrame.Buffs[i]:GetWidth(),
++			edgeFile = "Interface\\AddOns\\ShaguUI\\img\\border", edgeSize = LunaTargetFrame.Buffs[i]:GetWidth(),
++			insets = {left = 0, right = 0, top = 0, bottom = 0},
++		})
+ 	end
+ 	if not pos then
+ 		pos = 17
+-- 
+2.8.1
+

@@ -1,0 +1,34 @@
+From 869b183ed76da311521c72d4cffa28a9469b2f78 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 12 Dec 2015 18:17:20 +0100
+Subject: [PATCH 27/36] Removed captions from Party Powerbar
+
+---
+ modules/Party.lua | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/modules/Party.lua b/modules/Party.lua
+index 7c69116..75c7bca 100644
+--- a/modules/Party.lua
++++ b/modules/Party.lua
+@@ -347,7 +347,7 @@ function LunaUnitFrames:CreatePartyFrames()
+ 		LunaPartyFrames[i].bars["Powerbar"].righttext:SetShadowOffset(0.8, -0.8)
+ 		LunaPartyFrames[i].bars["Powerbar"].righttext:SetJustifyV("MIDDLE")
+ 		LunaPartyFrames[i].bars["Powerbar"].righttext:SetJustifyH("RIGHT")
+-		LunaUnitFrames:RegisterFontstring(LunaPartyFrames[i].bars["Powerbar"].righttext, "party"..i, barsettings["Powerbar"][2] or LunaOptions.defaultTags["Powerbar"][2])
++		--LunaUnitFrames:RegisterFontstring(LunaPartyFrames[i].bars["Powerbar"].righttext, "party"..i, barsettings["Powerbar"][2] or LunaOptions.defaultTags["Powerbar"][2])
+ 
+ 		LunaPartyFrames[i].bars["Powerbar"].lefttext = LunaPartyFrames[i].bars["Powerbar"]:CreateFontString(nil, "OVERLAY", LunaPartyFrames[i].bars["Powerbar"])
+ 		LunaPartyFrames[i].bars["Powerbar"].lefttext:SetPoint("LEFT", 2, 0)
+@@ -356,7 +356,7 @@ function LunaUnitFrames:CreatePartyFrames()
+ 		LunaPartyFrames[i].bars["Powerbar"].lefttext:SetShadowOffset(0.8, -0.8)
+ 		LunaPartyFrames[i].bars["Powerbar"].lefttext:SetJustifyV("MIDDLE")
+ 		LunaPartyFrames[i].bars["Powerbar"].lefttext:SetJustifyH("LEFT")
+-		LunaUnitFrames:RegisterFontstring(LunaPartyFrames[i].bars["Powerbar"].lefttext, "party"..i, barsettings["Powerbar"][1] or LunaOptions.defaultTags["Powerbar"][1])
++		--LunaUnitFrames:RegisterFontstring(LunaPartyFrames[i].bars["Powerbar"].lefttext, "party"..i, barsettings["Powerbar"][1] or LunaOptions.defaultTags["Powerbar"][1])
+ 
+ 		LunaPartyFrames[i].iconholder = CreateFrame("Frame", nil, LunaPartyFrames[i])
+ 		
+-- 
+2.8.1
+

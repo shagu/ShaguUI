@@ -1,0 +1,37 @@
+0000000000000000000000000000000000000000 e15b91984589f12cf9a27c6798e99d34c4ea153a Eric Mauser <ericmauser@googlemail.com> 1457548911 +0100	clone: from https://github.com/Aviana/LunaUnitFrames.git
+e15b91984589f12cf9a27c6798e99d34c4ea153a 4ef576e22ee170460f9abec94c6c440a86e57447 Eric Mauser <ericmauser@googlemail.com> 1457548911 +0100	am: Make it loadable inside ShaguUI
+4ef576e22ee170460f9abec94c6c440a86e57447 43afe669451ef4b96e5249d815f3af5e70891dac Eric Mauser <ericmauser@googlemail.com> 1457548911 +0100	am: Removed login messages
+43afe669451ef4b96e5249d815f3af5e70891dac 114656f2f39caec392111b6ef05213de906b9adf Eric Mauser <ericmauser@googlemail.com> 1457548911 +0100	am: Removed option GUI to avoid confusion
+114656f2f39caec392111b6ef05213de906b9adf 6fc9be175adc9fcbeacd7aee096f75f86a6815ef Eric Mauser <ericmauser@googlemail.com> 1457548911 +0100	am: Changed default configuration
+6fc9be175adc9fcbeacd7aee096f75f86a6815ef b69974327fe4471083a50cb44e4b1a454374d86a Eric Mauser <ericmauser@googlemail.com> 1457548911 +0100	am: Changed Pet frame position
+b69974327fe4471083a50cb44e4b1a454374d86a 19bf661cfbeb9fa7be0e259fe35d3f940a5a26ad Eric Mauser <ericmauser@googlemail.com> 1457548911 +0100	am: Changed Player frame position
+19bf661cfbeb9fa7be0e259fe35d3f940a5a26ad b6666680ec8f85abb0ae8c928b4eff6c65836d1c Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Changed Raid frame position
+b6666680ec8f85abb0ae8c928b4eff6c65836d1c 06334f4422c2776a193affff2ebd9190bff6d912 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Changed Target frame position
+06334f4422c2776a193affff2ebd9190bff6d912 fd838ce3722ef5e1803aeb6de1a9d160adcc9f8a Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Changed TargetTarget frame position
+fd838ce3722ef5e1803aeb6de1a9d160adcc9f8a 20fd6c030a385af4c999d99415688905a588a41f Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Removed Captions from Raidframes
+20fd6c030a385af4c999d99415688905a588a41f c77a2ea7d35a8fc1ea3bdea9f348016673934b09 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Removed Caption from petframes
+c77a2ea7d35a8fc1ea3bdea9f348016673934b09 fc2a73d390a9c62eea99df722a6f8d249bb406fa Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Integrated castbar into player powerbar
+fc2a73d390a9c62eea99df722a6f8d249bb406fa d57d198758a5b8387d0a5a754b764a86e4552cd9 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Changed castbar background to half transparent
+d57d198758a5b8387d0a5a754b764a86e4552cd9 d37608b33764065a1f0f546d11db5244b573d6a3 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Removed background from castbar
+d37608b33764065a1f0f546d11db5244b573d6a3 d90e4b7a69085db4d28b3c9078415097a6529ec3 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Made Shaman color configurable
+d90e4b7a69085db4d28b3c9078415097a6529ec3 e2648d7fb66521b5ef460bfa9cac4c7f66a68f54 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Made Raidframe zoom configurable
+e2648d7fb66521b5ef460bfa9cac4c7f66a68f54 8ba4f0a9a51b6686cc426c876ecd7c26b3cd1157 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Made Party in raid configurable
+8ba4f0a9a51b6686cc426c876ecd7c26b3cd1157 ac0508ed1922d2d6423a6d31763d5b690ba080da Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Made Blizzard Castbar configurable
+ac0508ed1922d2d6423a6d31763d5b690ba080da 675c1d74bdf2cc4cf481eaf849dd9b1338eaf281 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Added deDE translation for combatlog rangecheck
+675c1d74bdf2cc4cf481eaf849dd9b1338eaf281 94c711bf9f6d7c4f6f40d01eca0a5bb08ff15bf8 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Made Aggro display configurable
+94c711bf9f6d7c4f6f40d01eca0a5bb08ff15bf8 04fa19851fc8a380052e5c0ca788d8b3d943d11e Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Made Hot tracker configurable
+04fa19851fc8a380052e5c0ca788d8b3d943d11e 88b08c7673203cafe7770f96a6c9c9202684f69b Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Made Raidframe configurable
+88b08c7673203cafe7770f96a6c9c9202684f69b 62e48e6031447b199449cb459196cd4e08709efe Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Made a config for 4x raidzoom
+62e48e6031447b199449cb459196cd4e08709efe ff72bfa22f3bb21caf9d3d026385cf87f3733caa Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Add deDE locales (hacky)
+ff72bfa22f3bb21caf9d3d026385cf87f3733caa 3b9765c42f7a93d7321d15c7eb72757652fe3b4b Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Made configurable to show Hots
+3b9765c42f7a93d7321d15c7eb72757652fe3b4b 97a0d947259512a10b6d6d3b3f7aac0a5f6861aa Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Changed Luna font to the ShaguUI one
+97a0d947259512a10b6d6d3b3f7aac0a5f6861aa 869b183ed76da311521c72d4cffa28a9469b2f78 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Removed captions from Party Powerbar
+869b183ed76da311521c72d4cffa28a9469b2f78 b8b133af2984b1b95a412739f6f1e5591e924b9d Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Changed Fontsize of Unitframes
+b8b133af2984b1b95a412739f6f1e5591e924b9d 3ba25b2a6063eab407d546f8b4d748a2311e2dd8 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Added Raidicons, Leadericons, ...
+3ba25b2a6063eab407d546f8b4d748a2311e2dd8 4f21a0126181daf2b1be7242785c78e0f67e79d8 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Changed default font to ShaguUI Font
+4f21a0126181daf2b1be7242785c78e0f67e79d8 7d33d443a916f8337a518ac7d5dd822c81e968e5 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Disable LunaUnitFrames if alternative is in use
+7d33d443a916f8337a518ac7d5dd822c81e968e5 6acc23d3f9a484159d0457bcc8e6524912218251 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Add more space between bars, integrate target castbar, buffs
+6acc23d3f9a484159d0457bcc8e6524912218251 f5eda0432b7e1ad3cc5e414a103475ec33a8aa87 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: changed buff and frame positions
+f5eda0432b7e1ad3cc5e414a103475ec33a8aa87 d38e06e241a62e11acd124c2504ae74b90f609a6 Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: changed some options, use ShaguUI texture as default
+d38e06e241a62e11acd124c2504ae74b90f609a6 aff45d590b1ac3817e0be2c2c56dfd254827051b Eric Mauser <ericmauser@googlemail.com> 1457548912 +0100	am: Fix Backdrop edgesize for buffs
+aff45d590b1ac3817e0be2c2c56dfd254827051b 3db704d0eb085a1adbdf3e7fd98e0c27b45f1801 Eric Mauser <ericmauser@googlemail.com> 1459035799 +0100	commit: Add more Space on Frames and theme debuffs

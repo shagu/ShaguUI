@@ -1,0 +1,104 @@
+From 3db704d0eb085a1adbdf3e7fd98e0c27b45f1801 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sun, 27 Mar 2016 00:43:19 +0100
+Subject: [PATCH 36/36] Add more Space on Frames and theme debuffs
+
+---
+ modules/Options.lua |  4 ++--
+ modules/Player.lua  | 19 ++++++++++++++++---
+ modules/Target.lua  | 18 +++++++++++++++---
+ 3 files changed, 33 insertions(+), 8 deletions(-)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index db9886d..13bb64d 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -172,8 +172,8 @@ function LunaOptionsModule:ResetSettings()
+ 	LunaOptions.resIcon = LunaUnitFrames.addonPath .. "\\media\\Raid-Icon-Rez"
+ 	LunaOptions.indicator = LunaUnitFrames.addonPath .. "\\media\\indicator"
+ 
+-	LunaOptions.frames = {	["LunaPlayerFrame"] = {position = {x = -162, y = 90}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0}, {"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Druidbar", 0}, {"Totembar", 0}}},
+-							["LunaTargetFrame"] = {position = {x = 162, y = 90}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0},{"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}}},
++	LunaOptions.frames = {	["LunaPlayerFrame"] = {position = {x = -162, y = 91}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0}, {"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Druidbar", 0}, {"Totembar", 0}}},
++							["LunaTargetFrame"] = {position = {x = 162, y = 91}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0},{"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}}},
+ 							["LunaTargetTargetFrame"] = {position = {x = 0, y = 86}, size = {x = 118, y = 19}, scale = 1, enabled = 1, portrait = 0, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 0}}},
+ 							["LunaTargetTargetTargetFrame"] = {position = {x = 730, y = -20}, size = {x = 150, y = 40}, scale = 1, enabled = 0, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+ 							["LunaPartyFrames"] = {position = {x = 20, y = -100}, size = {x = 125, y = 30}, scale = 1, enabled = 1, ShowBuffs = 3, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0},{"Healthbar", 6}, {"Powerbar", 1}}},
+diff --git a/modules/Player.lua b/modules/Player.lua
+index 2b7a3ad..4a4714e 100644
+--- a/modules/Player.lua
++++ b/modules/Player.lua
+@@ -732,9 +732,9 @@ function LunaUnitFrames:CreatePlayerFrame()
+ 			
+ 			if not firstbar and LunaPlayerFrame.bars[bar]:IsShown() then
+ 				if v[1] == "Castbar" then
+-					LunaPlayerFrame.bars[bar]:SetPoint("TOPLEFT", LunaPlayerFrame.bars["Healthbar"], "BOTTOMLEFT", 0, -5)
++					LunaPlayerFrame.bars[bar]:SetPoint("TOPLEFT", LunaPlayerFrame.bars["Healthbar"], "BOTTOMLEFT", 0, -6)
+ 				else
+-					LunaPlayerFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -5)
++					LunaPlayerFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -6)
+ 				end
+ 				anchor = {"TOPLEFT", LunaPlayerFrame.bars[bar], "BOTTOMLEFT"}
+ 			elseif LunaPlayerFrame.bars[bar]:IsShown() then
+@@ -1231,7 +1231,20 @@ function Luna_Player_Events:PLAYER_AURAS_CHANGED()
+ 			LunaPlayerFrame.Debuffs[i]:EnableMouse(0)
+ 			LunaPlayerFrame.Debuffs[i]:Hide()
+ 		end
+-		LunaPlayerFrame.Debuffs[i]:SetNormalTexture(LunaPlayerFrame.Debuffs[i].texturepath)
++		LunaPlayerFrame.Debuffs[i]:SetNormalTexture(nil)
++		if LunaPlayerFrame.Debuffs[i]:GetWidth() <= 16 then
++			LunaBuffEdgeSize = LunaPlayerFrame.Debuffs[i]:GetWidth()
++		else
++			LunaBuffEdgeSize = 16
++		end
++
++		LunaPlayerFrame.Debuffs[i]:SetBackdrop({
++			bgFile = LunaPlayerFrame.Debuffs[i].texturepath, tile = false, tileSize = LunaPlayerFrame.Debuffs[i]:GetWidth(),
++			edgeFile = "Interface\\AddOns\\ShaguUI\\img\\border_color", edgeSize = LunaBuffEdgeSize,
++			insets = {left = 0, right = 0, top = 0, bottom = 0},
++		})
++		LunaPlayerFrame.Debuffs[i]:SetBackdropBorderColor(1,0,0,1)
++
+ 	end
+ 	Luna_Player_BuffTimer()
+ end
+diff --git a/modules/Target.lua b/modules/Target.lua
+index ed8cb24..a93603c 100644
+--- a/modules/Target.lua
++++ b/modules/Target.lua
+@@ -524,9 +524,9 @@ function LunaUnitFrames:CreateTargetFrame()
+ 			
+ 			if not firstbar and LunaTargetFrame.bars[bar]:IsShown() then
+ 				if v[1] == "Castbar" then
+-					LunaTargetFrame.bars[bar]:SetPoint("TOPLEFT", LunaTargetFrame.bars["Healthbar"], "BOTTOMLEFT", 0, -5)
++					LunaTargetFrame.bars[bar]:SetPoint("TOPLEFT", LunaTargetFrame.bars["Healthbar"], "BOTTOMLEFT", 0, -6)
+ 				else
+-					LunaTargetFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -5)
++					LunaTargetFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -6)
+ 				end
+ 				anchor = {"TOPLEFT", LunaTargetFrame.bars[bar], "BOTTOMLEFT"}
+ 			elseif LunaTargetFrame.bars[bar]:IsShown() then
+@@ -885,7 +885,19 @@ function Luna_Target_Events:UNIT_AURA()
+ 			LunaTargetFrame.Debuffs[i]:EnableMouse(0)
+ 			LunaTargetFrame.Debuffs[i]:Hide()
+ 		end
+-		LunaTargetFrame.Debuffs[i]:SetNormalTexture(LunaTargetFrame.Debuffs[i].texturepath)
++		LunaTargetFrame.Debuffs[i]:SetNormalTexture(nil)
++		if LunaTargetFrame.Debuffs[i]:GetWidth() <= 16 then
++			LunaBuffEdgeSize = LunaTargetFrame.Debuffs[i]:GetWidth()
++		else
++			LunaBuffEdgeSize = 16
++		end
++
++		LunaTargetFrame.Debuffs[i]:SetBackdrop({
++			bgFile = LunaTargetFrame.Debuffs[i].texturepath, tile = false, tileSize = LunaTargetFrame.Debuffs[i]:GetWidth(),
++			edgeFile = "Interface\\AddOns\\ShaguUI\\img\\border_color", edgeSize = LunaBuffEdgeSize,
++			insets = {left = 0, right = 0, top = 0, bottom = 0},
++		})
++		LunaTargetFrame.Debuffs[i]:SetBackdropBorderColor(1,0,0,1)
+ 	end
+ end
+ 
+-- 
+2.8.1
+

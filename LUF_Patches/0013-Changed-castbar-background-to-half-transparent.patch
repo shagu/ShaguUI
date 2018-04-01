@@ -1,0 +1,25 @@
+From d57d198758a5b8387d0a5a754b764a86e4552cd9 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:18:06 +0100
+Subject: [PATCH 13/36] Changed castbar background to half transparent
+
+---
+ modules/Options.lua | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index 531ce7d..7bcaf83 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -3326,7 +3326,7 @@ function LunaUnitFrames:UpdateBarTextures()
+ 	LunaPlayerFrame.incHeal:SetStatusBarColor(0, 1, 0, 0.6)
+ 	LunaPlayerFrame.bars["Powerbar"]:SetStatusBarTexture(texture)
+ 	LunaPlayerFrame.bars["Castbar"]:SetStatusBarTexture(texture)
+-	LunaPlayerFrame.bars["Castbar"]:SetStatusBarColor(1, 0.7, 0.3)
++	LunaPlayerFrame.bars["Castbar"]:SetStatusBarColor(1, 0.7, 0.3, 0.5)
+ 	LunaPlayerFrame.bars["Druidbar"]:SetStatusBarTexture(texture)
+ 	LunaPlayerFrame.bars["Druidbar"]:SetStatusBarColor(LunaOptions.PowerColors["Mana"][1], LunaOptions.PowerColors["Mana"][2], LunaOptions.PowerColors["Mana"][3])
+ 
+-- 
+2.8.1
+

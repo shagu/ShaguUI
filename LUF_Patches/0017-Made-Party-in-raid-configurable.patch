@@ -1,0 +1,29 @@
+From 8ba4f0a9a51b6686cc426c876ecd7c26b3cd1157 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:05:06 +0100
+Subject: [PATCH 17/36] Made Party in raid configurable
+
+---
+ modules/Options.lua | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index fe0b2f6..dbc94cf 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -268,7 +268,11 @@ function LunaOptionsModule:ResetSettings()
+ 							{"","","","",""}
+ 							}
+ 	LunaOptions.enableRaid = 1
+-	LunaOptions.PartyinRaids = 0
++	if ShaguUIconfig["enablePartyinRaid"] then
++		LunaOptions.PartyinRaid = 1
++	else
++		LunaOptions.PartyinRaid = 0
++	end
+ 	LunaOptions.Rangefreq = 0.2
+ 	LunaOptions.Raidlayout = "GRID"
+ 	LunaOptions.EnergyTicker = 1
+-- 
+2.8.1
+

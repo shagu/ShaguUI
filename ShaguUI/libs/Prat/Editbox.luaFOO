@@ -1,0 +1,109 @@
+--[[
+Name: Prat_Editbox
+Revision: $Revision: 16019 $
+Author(s): Curney (asml8ed@gmail.com)
+           Krtek (krtek4@gmail.com)
+Inspired by: idChat2_Editbox by Industrial
+Website: http://www.wowace.com/files/index.php?path=Prat/
+Documentation: http://www.wowace.com/wiki/Prat/Integrated_Modules#Editbox
+SVN: http://svn.wowace.com/wowace/trunk/Prat/
+Description: Module for Prat that adds editbox options.
+Dependencies: Prat
+]]
+
+Prat_Editbox = Prat:NewModule("editbox")
+
+function Prat_Editbox:OnInitialize()
+    self.db = Prat:AcquireDBNamespace("Editbox")
+    Prat:RegisterDefaults("Editbox", "profile", {
+        on = true,
+        alpha = 1,
+        locked = false,
+        sticky = false,
+        arrowkeys = true
+    })
+end
+
+function Prat_Editbox:OnEnable()
+    self:ArrowKeys(self.db.profile.arrowkeys)
+    self:Sticky(self.db.profile.sticky)
+end
+
+function Prat_Editbox:OnDisable()
+    self:Alpha(1)
+    self:ArrowKeys(false)
+    self:Sticky(false)
+end
+
+function Prat_Editbox:Alpha(value)
+    local eb = VisorEditbox or ChatFrameEditBox
+    for i,v in ipairs({eb:GetRegions()}) do
+        if i==6 or i==7 or i==8 then
+            v:SetAlpha(value)
+        end
+    end
+end
+
+function Prat_Editbox:ArrowKeys(enabled)
+    local eb = VisorEditBox or ChatFrameEditBox
+    if enabled then eb:SetAltArrowKeyMode(false) else eb:SetAltArrowKeyMode(true) end
+end
+
+
+function Prat_Editbox:Sticky(enabled)
+    if not enabled then
+        DEFAULT_CHAT_FRAME.editBox:SetScript("OnEscapePressed", 
+            function() ChatEdit_OnEscapePressed(this) end
+        )
+		DEFAULT_CHAT_FRAME.editBox:SetScript("OnEnterPressed",
+			function() ChatEdit_OnEnterPressed() end
+		)
+        self:UnhookAll()
+    else
+        DEFAULT_CHAT_FRAME.editBox:SetScript("OnEscapePressed", 
+            function()
+                this.oldText = this:GetText()
+                this.oldChatType = this.chatType
+                ChatEdit_OnEscapePressed(this)
+            end
+        )
+        DEFAULT_CHAT_FRAME.editBox:SetScript("OnEnterPressed",
+            function()
+                this.oldText = nil
+                this.oldChatType = nil
+                ChatEdit_OnEnterPressed()
+            end
+        )
+        self:Hook("ChatFrame_OpenChat",
+            function(text, chatFrame)
+                local editBox =  DEFAULT_CHAT_FRAME.editBox
+                if (not chatFrame or chatFrame == DEFAULT_CHAT_FRAME) and text == "" and 
+                        editBox.oldText and editBox.oldText ~= "" then
+                    editBox:SetText(editBox.oldText)
+                    editBox.chatType = editBox.oldChatType
+                    editBox:Show()
+                else
+                    self.hooks["ChatFrame_OpenChat"](text, chatFrame)
+                end
+            end
+        )
+        self:Hook("ChatFrame_ReplyTell",
+            function(chatFrame)
+                if ( not chatFrame ) then
+		            chatFrame = DEFAULT_CHAT_FRAME;
+                end
+                chatFrame.editBox.oldText = nil
+                self.hooks["ChatFrame_ReplyTell"](chatFrame)
+            end
+        )
+        self:Hook("ChatFrame_ReplyTell2",
+            function(chatFrame)
+                if ( not chatFrame ) then
+		            chatFrame = DEFAULT_CHAT_FRAME;
+                end
+                chatFrame.editBox.oldText = nil
+                self.hooks["ChatFrame_ReplyTell2"](chatFrame)
+            end
+        ) 
+    end
+end

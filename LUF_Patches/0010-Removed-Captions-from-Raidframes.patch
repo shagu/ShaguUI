@@ -1,0 +1,34 @@
+From 20fd6c030a385af4c999d99415688905a588a41f Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:13:13 +0100
+Subject: [PATCH 10/36] Removed Captions from Raidframes
+
+---
+ modules/Raid.lua | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/modules/Raid.lua b/modules/Raid.lua
+index 5f4c66e..1b48aa4 100644
+--- a/modules/Raid.lua
++++ b/modules/Raid.lua
+@@ -482,7 +482,7 @@ function LunaUnitFrames:UpdateRaidRoster()
+ 				RaidRoster[1][i+1] = UnitName("party"..i)
+ 			end
+ 			table.sort(RaidRoster[1], function(a,b) return a<b end)
+-			LunaUnitFrames.frames.headers[1].GrpName:SetText("GRP 1")
++--			LunaUnitFrames.frames.headers[1].GrpName:SetText("GRP 1")
+ 		elseif RAID_SUBGROUP_LISTS then
+ 			for i=1,8 do
+ 				RaidRoster[i] = {}
+@@ -496,7 +496,7 @@ function LunaUnitFrames:UpdateRaidRoster()
+ 					end
+ 				end
+ 				table.sort(RaidRoster[i], function(a,b) return a<b end)
+-				LunaUnitFrames.frames.headers[i].GrpName:SetText("GRP "..i)
++--				LunaUnitFrames.frames.headers[i].GrpName:SetText("GRP "..i)
+ 			end
+ 		else
+ 			return
+-- 
+2.8.1
+

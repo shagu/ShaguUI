@@ -1,0 +1,58 @@
+From d90e4b7a69085db4d28b3c9078415097a6529ec3 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 04:59:29 +0100
+Subject: [PATCH 15/36] Made Shaman color configurable
+
+---
+ LunaUnitFrames.lua | 35 +++++++++++++++++++++++++----------
+ 1 file changed, 25 insertions(+), 10 deletions(-)
+
+diff --git a/LunaUnitFrames.lua b/LunaUnitFrames.lua
+index 3d73de0..aceaabf 100644
+--- a/LunaUnitFrames.lua
++++ b/LunaUnitFrames.lua
+@@ -219,16 +219,31 @@ function LunaUnitFrames:OnEvent()
+ 											}
+ 		end
+ 		if not LunaOptions.ClassColors then
+-			LunaOptions.ClassColors = {	WARRIOR = {0.78, 0.61, 0.43},
+-							MAGE = {0.41, 0.8, 0.94},
+-							ROGUE = {1, 0.96, 0.41},
+-							DRUID = {1, 0.49, 0.04},
+-							HUNTER = {0.67, 0.83, 0.45},
+-							SHAMAN = {0.14, 0.35, 1.0},
+-							PRIEST = {1, 1, 1},
+-							WARLOCK = {0.58, 0.51, 0.79},
+-							PALADIN = {0.96, 0.55, 0.73}
+-							}
++			if ShaguUIconfig["enableBlueShaman"] then
++				LunaOptions.ClassColors = {
++					WARRIOR = {0.78, 0.61, 0.43},
++					MAGE = {0.41, 0.8, 0.94},
++					ROGUE = {1, 0.96, 0.41},
++					DRUID = {1, 0.49, 0.04},
++					HUNTER = {0.67, 0.83, 0.45},
++					SHAMAN = {0.14, 0.35, 1.0},
++					PRIEST = {1, 1, 1},
++					WARLOCK = {0.58, 0.51, 0.79},
++					PALADIN = {0.96, 0.55, 0.73}
++				}
++			else
++				LunaOptions.ClassColors = {
++					WARRIOR = {0.78, 0.61, 0.43},
++					MAGE = {0.41, 0.8, 0.94},
++					ROGUE = {1, 0.96, 0.41},
++					DRUID = {1, 0.49, 0.04},
++					HUNTER = {0.67, 0.83, 0.45},
++					SHAMAN = {0.96, 0.55, 0.73},
++					PRIEST = {1, 1, 1},
++					WARLOCK = {0.58, 0.51, 0.79},
++					PALADIN = {0.96, 0.55, 0.73}
++				}
++			end
+ 		end
+ 		if type(LunaOptions.frames["LunaPartyPetFrames"].position) == "table" then
+ 			LunaOptions.frames["LunaPartyPetFrames"].position = "RIGHT"
+-- 
+2.8.1
+

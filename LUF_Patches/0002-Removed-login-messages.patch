@@ -1,0 +1,27 @@
+From 43afe669451ef4b96e5249d815f3af5e70891dac Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 04:57:39 +0100
+Subject: [PATCH 02/36] Removed login messages
+
+---
+ LunaUnitFrames.lua | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/LunaUnitFrames.lua b/LunaUnitFrames.lua
+index 1940d2f..bbc42d9 100644
+--- a/LunaUnitFrames.lua
++++ b/LunaUnitFrames.lua
+@@ -280,8 +280,8 @@ function LunaUnitFrames:OnEvent()
+ 
+ 		-----------------------------------------------------------
+ 		--Load the Addon here
+-		ChatFrame1:AddMessage("|cFF6583DA~ |r|cFFEFDFFFLuna Unit Frames |r|cFF6583DAloaded. Enjoy the ride!|r")
+-		ChatFrame1:AddMessage("|cFF6583DA~ Type |cFFEFDFFF/luna |r|cFF6583DAfor options.|r")
++		-- ChatFrame1:AddMessage("|cFF6583DA~ |r|cFFEFDFFFLuna Unit Frames |r|cFF6583DAloaded. Enjoy the ride!|r")
++		-- ChatFrame1:AddMessage("|cFF6583DA~ Type |cFFEFDFFF/luna |r|cFF6583DAfor options.|r")
+ 		LunaUnitFrames:CreatePlayerFrame()
+ 		LunaUnitFrames:CreatePetFrame()
+ 		LunaUnitFrames:CreateTargetFrame()
+-- 
+2.8.1
+

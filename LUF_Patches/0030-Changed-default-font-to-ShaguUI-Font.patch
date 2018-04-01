@@ -1,0 +1,25 @@
+From 4f21a0126181daf2b1be7242785c78e0f67e79d8 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sun, 13 Dec 2015 19:29:17 +0100
+Subject: [PATCH 30/36] Changed default font to ShaguUI Font
+
+---
+ modules/Options.lua | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index 04c5701..85e8d87 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -3495,7 +3495,7 @@ function LunaUnitFrames:UpdateBarTextures()
+ end
+ 
+ function LunaUnitFrames:UpdateBarFontString()
+-	LunaOptions.font = LunaUnitFrames.addonPath .. BarFontsPath .. BarFonts[LunaOptions.BarFont] .. ".ttf"
++	LunaOptions.font = "Interface\\AddOns\\ShaguUI\\fonts\\arial.ttf"
+ end
+ function LunaUnitFrames:UpdateBarFonts()
+ 
+-- 
+2.8.1
+

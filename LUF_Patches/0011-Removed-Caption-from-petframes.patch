@@ -1,0 +1,54 @@
+From c77a2ea7d35a8fc1ea3bdea9f348016673934b09 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:09:39 +0100
+Subject: [PATCH 11/36] Removed Caption from petframes
+
+---
+ modules/Pet.lua | 24 ------------------------
+ 1 file changed, 24 deletions(-)
+
+diff --git a/modules/Pet.lua b/modules/Pet.lua
+index bd55214..5857ba7 100644
+--- a/modules/Pet.lua
++++ b/modules/Pet.lua
+@@ -220,24 +220,6 @@ function LunaUnitFrames:CreatePetFrame()
+ 	LunaPetFrame.bars["Powerbar"].ppbg:SetAllPoints(LunaPetFrame.bars["Powerbar"])
+ 	LunaPetFrame.bars["Powerbar"].ppbg:SetTexture(.25,.25,.25,.25)
+ 
+-	LunaPetFrame.bars["Powerbar"].righttext = LunaPetFrame.bars["Powerbar"]:CreateFontString(nil, "OVERLAY", LunaPetFrame.bars["Powerbar"])
+-	LunaPetFrame.bars["Powerbar"].righttext:SetPoint("RIGHT", -2, 0)
+-	LunaPetFrame.bars["Powerbar"].righttext:SetFont(LunaOptions.font, LunaOptions.fontHeight)
+-	LunaPetFrame.bars["Powerbar"].righttext:SetShadowColor(0, 0, 0)
+-	LunaPetFrame.bars["Powerbar"].righttext:SetShadowOffset(0.8, -0.8)
+-	LunaPetFrame.bars["Powerbar"].righttext:SetJustifyH("RIGHT")
+-	LunaPetFrame.bars["Powerbar"].righttext:SetJustifyV("MIDDLE")
+-	LunaUnitFrames:RegisterFontstring(LunaPetFrame.bars["Powerbar"].righttext, "pet", barsettings["Powerbar"][2] or LunaOptions.defaultTags["Powerbar"][2])
+-
+-	LunaPetFrame.bars["Powerbar"].lefttext = LunaPetFrame.bars["Powerbar"]:CreateFontString(nil, "OVERLAY", LunaPetFrame.bars["Powerbar"])
+-	LunaPetFrame.bars["Powerbar"].lefttext:SetPoint("LEFT", 2, 0)
+-	LunaPetFrame.bars["Powerbar"].lefttext:SetFont(LunaOptions.font, LunaOptions.fontHeight)
+-	LunaPetFrame.bars["Powerbar"].lefttext:SetShadowColor(0, 0, 0)
+-	LunaPetFrame.bars["Powerbar"].lefttext:SetShadowOffset(0.8, -0.8)
+-	LunaPetFrame.bars["Powerbar"].lefttext:SetJustifyH("LEFT")
+-	LunaPetFrame.bars["Powerbar"].lefttext:SetJustifyV("MIDDLE")
+-	LunaUnitFrames:RegisterFontstring(LunaPetFrame.bars["Powerbar"].lefttext, "pet", barsettings["Powerbar"][1] or LunaOptions.defaultTags["Powerbar"][1])
+-
+ 	LunaPetFrame:RegisterEvent("UNIT_HEALTH")
+ 	LunaPetFrame:RegisterEvent("UNIT_MAXHEALTH")
+ 	LunaPetFrame:RegisterEvent("UNIT_MANA")
+@@ -321,12 +303,6 @@ function LunaUnitFrames:CreatePetFrame()
+ 		LunaPetFrame.bars["Healthbar"].lefttext:SetWidth(LunaPetFrame.bars["Healthbar"]:GetWidth()*textbalance["Healthbar"])
+ 
+ 		local powerheight = (LunaPetFrame.bars["Powerbar"]:GetHeight()*textheights["Powerbar"])
+-		LunaPetFrame.bars["Powerbar"].righttext:SetFont(LunaOptions.font, powerheight)
+-		LunaPetFrame.bars["Powerbar"].righttext:SetHeight(LunaPetFrame.bars["Powerbar"]:GetHeight())
+-		LunaPetFrame.bars["Powerbar"].righttext:SetWidth(LunaPetFrame.bars["Powerbar"]:GetWidth()*(1-textbalance["Powerbar"]))
+-		LunaPetFrame.bars["Powerbar"].lefttext:SetFont(LunaOptions.font, powerheight)
+-		LunaPetFrame.bars["Powerbar"].lefttext:SetHeight(LunaPetFrame.bars["Powerbar"]:GetHeight())
+-		LunaPetFrame.bars["Powerbar"].lefttext:SetWidth(LunaPetFrame.bars["Powerbar"]:GetWidth()*textbalance["Powerbar"])
+ 		
+ 		if not (LunaOptions.frames["LunaPetFrame"].portrait > 1) and not LunaPetFrame.bars["Portrait"].model:IsShown() then
+ 			Luna_Pet_Events.UNIT_PORTRAIT_UPDATE("pet")
+-- 
+2.8.1
+

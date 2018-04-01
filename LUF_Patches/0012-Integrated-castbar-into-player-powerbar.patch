@@ -1,0 +1,68 @@
+From fc2a73d390a9c62eea99df722a6f8d249bb406fa Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:12:19 +0100
+Subject: [PATCH 12/36] Integrated castbar into player powerbar
+
+---
+ modules/Player.lua | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
+
+diff --git a/modules/Player.lua b/modules/Player.lua
+index 5203c2a..177d44b 100644
+--- a/modules/Player.lua
++++ b/modules/Player.lua
+@@ -677,8 +677,10 @@ function LunaUnitFrames:CreatePlayerFrame()
+ 			textheights[v[1]] = v[3] or 0.45
+ 			textbalance[v[1]] = v[6] or 0.5
+ 		end
+-		
+-		if ((LunaPlayerFrame.bars["Castbar"].casting or LunaPlayerFrame.bars["Castbar"].channeling) and CastBarHeightWeight > 0) then
++
++		if ((LunaPlayerFrame.bars["Castbar"].casting or LunaPlayerFrame.bars["Castbar"].channeling) and CastBarHeightWeight > 0 and not ShaguUIconfig["enableOriginalCastbar"]) then
++      LunaPlayerFrame.bars["Powerbar"].righttext:Hide()
++      LunaPlayerFrame.bars["Powerbar"].lefttext:Hide()
+ 			LunaPlayerFrame.bars["Castbar"]:Show()
+ 		elseif LunaOptions.staticplayercastbar then
+ 			LunaPlayerFrame.bars["Castbar"]:Show()
+@@ -686,6 +688,8 @@ function LunaUnitFrames:CreatePlayerFrame()
+ 			LunaPlayerFrame.bars["Castbar"].Text:SetText("")
+ 			LunaPlayerFrame.bars["Castbar"]:SetValue(0)
+ 		else
++      LunaPlayerFrame.bars["Powerbar"].righttext:Show()
++      LunaPlayerFrame.bars["Powerbar"].lefttext:Show()
+ 			LunaPlayerFrame.bars["Castbar"]:Hide()
+ 		end
+ 		if class == "DRUID" and UnitPowerType("player") ~= 0 and LunaOptions.DruidBar == 1 then
+@@ -709,7 +713,7 @@ function LunaUnitFrames:CreatePlayerFrame()
+ 			anchor = {"TOPLEFT", LunaPlayerFrame, "TOPLEFT"}
+ 		end
+ 		for k,v in pairs(LunaOptions.frames["LunaPlayerFrame"].bars) do
+-			if LunaPlayerFrame.bars[v[1]]:IsShown() then
++			if LunaPlayerFrame.bars[v[1]]:IsShown() and v[1] ~= "Castbar" then
+ 				totalWeight = totalWeight + v[2]
+ 				gaps = gaps + 1
+ 			end
+@@ -726,10 +730,18 @@ function LunaUnitFrames:CreatePlayerFrame()
+ 			LunaPlayerFrame.bars[bar].weight = v[2]
+ 			
+ 			if not firstbar and LunaPlayerFrame.bars[bar]:IsShown() then
+-				LunaPlayerFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -1)
++				if v[1] == "Castbar" then
++					LunaPlayerFrame.bars[bar]:SetPoint("TOPLEFT", LunaPlayerFrame.bars["Healthbar"], "BOTTOMLEFT", 0, -1)
++				else
++					LunaPlayerFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3], 0, -1)
++				end
+ 				anchor = {"TOPLEFT", LunaPlayerFrame.bars[bar], "BOTTOMLEFT"}
+ 			elseif LunaPlayerFrame.bars[bar]:IsShown() then
+-				LunaPlayerFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3])
++				if v[1] == "Castbar" then
++					LunaPlayerFrame.bars[bar]:SetPoint("TOPLEFT", LunaPlayerFrame.bars["Healthbar"], "BOTTOMLEFT")
++				else
++					LunaPlayerFrame.bars[bar]:SetPoint(anchor[1], anchor[2], anchor[3])
++				end
+ 				firstbar = nil
+ 				anchor = {"TOPLEFT", LunaPlayerFrame.bars[bar], "BOTTOMLEFT"}
+ 			end			
+-- 
+2.8.1
+

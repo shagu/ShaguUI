@@ -1,0 +1,31 @@
+From 114656f2f39caec392111b6ef05213de906b9adf Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 04:58:22 +0100
+Subject: [PATCH 03/36] Removed option GUI to avoid confusion
+
+---
+ LunaUnitFrames.lua | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/LunaUnitFrames.lua b/LunaUnitFrames.lua
+index bbc42d9..3d73de0 100644
+--- a/LunaUnitFrames.lua
++++ b/LunaUnitFrames.lua
+@@ -317,10 +317,10 @@ function LunaUnitFrames:OnEvent()
+ end
+ LunaUnitFrames:SetScript("OnEvent", LunaUnitFrames.OnEvent)
+ 
+-SLASH_LUF1, SLASH_LUF2, SLASH_LUF3 = "/luf", "/luna", "/lunaunitframes"
+-function SlashCmdList.LUF(msg, editbox)
+-	LunaOptionsFrame:Show()
+-end
++--SLASH_LUF1, SLASH_LUF2, SLASH_LUF3 = "/luf", "/luna", "/lunaunitframes"
++--function SlashCmdList.LUF(msg, editbox)
++--	LunaOptionsFrame:Show()
++--end
+ 
+ SLASH_LUFMO1, SLASH_LUFMO2 = "/lunamo", "/lunamouseover"
+ function SlashCmdList.LUFMO(msg, editbox)
+-- 
+2.8.1
+

@@ -1,0 +1,25 @@
+From 19bf661cfbeb9fa7be0e259fe35d3f940a5a26ad Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:10:13 +0100
+Subject: [PATCH 06/36] Changed Player frame position
+
+---
+ modules/Player.lua | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/modules/Player.lua b/modules/Player.lua
+index 81da8f0..5203c2a 100644
+--- a/modules/Player.lua
++++ b/modules/Player.lua
+@@ -224,7 +224,7 @@ function LunaUnitFrames:CreatePlayerFrame()
+ 	LunaPlayerFrame:SetScale(LunaOptions.frames["LunaPlayerFrame"].scale)
+ 	LunaPlayerFrame:SetBackdrop(LunaOptions.backdrop)
+ 	LunaPlayerFrame:SetBackdropColor(0,0,0,1)
+-	LunaPlayerFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", LunaOptions.frames["LunaPlayerFrame"].position.x, LunaOptions.frames["LunaPlayerFrame"].position.y)
++	LunaPlayerFrame:SetPoint("BOTTOM", UIParent, "BOTTOM", LunaOptions.frames["LunaPlayerFrame"].position.x, LunaOptions.frames["LunaPlayerFrame"].position.y)
+ 	LunaPlayerFrame:RegisterForClicks('LeftButtonUp', 'RightButtonUp', 'MiddleButtonUp', 'Button4Up', 'Button5Up')
+ 	LunaPlayerFrame.unit = "player"
+ 	LunaPlayerFrame:SetScript("OnEnter", UnitFrame_OnEnter)
+-- 
+2.8.1
+

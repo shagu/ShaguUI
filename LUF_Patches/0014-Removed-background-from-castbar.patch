@@ -1,0 +1,31 @@
+From d37608b33764065a1f0f546d11db5244b573d6a3 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:11:05 +0100
+Subject: [PATCH 14/36] Removed background from castbar
+
+---
+ modules/Player.lua | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/modules/Player.lua b/modules/Player.lua
+index 177d44b..40b0b23 100644
+--- a/modules/Player.lua
++++ b/modules/Player.lua
+@@ -496,10 +496,10 @@ function LunaUnitFrames:CreatePlayerFrame()
+ 	LunaPlayerFrame.bars["Castbar"]:SetValue(0)
+ 
+ 	-- Add a background
+-	local Background = Castbar:CreateTexture(nil, 'BACKGROUND')
+-	Background:SetAllPoints(Castbar)
+-	Background:SetTexture(0, 0, 1, 0.20)
+-	LunaPlayerFrame.bars["Castbar"].bg = Background
++--	local Background = Castbar:CreateTexture(nil, 'BACKGROUND')
++--	Background:SetAllPoints(Castbar)
++--	Background:SetTexture(0, 0, 1, 0.20)
++--	LunaPlayerFrame.bars["Castbar"].bg = Background
+ 
+ 	-- Add a timer
+ 	local Time = Castbar:CreateFontString(nil, "OVERLAY", castbar)
+-- 
+2.8.1
+

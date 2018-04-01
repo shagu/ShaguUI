@@ -1,0 +1,42 @@
+From d38e06e241a62e11acd124c2504ae74b90f609a6 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Tue, 8 Mar 2016 13:53:46 +0100
+Subject: [PATCH 34/36] changed some options, use ShaguUI texture as default
+
+---
+ modules/Options.lua | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index 93f96e2..db9886d 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -173,7 +173,7 @@ function LunaOptionsModule:ResetSettings()
+ 	LunaOptions.indicator = LunaUnitFrames.addonPath .. "\\media\\indicator"
+ 
+ 	LunaOptions.frames = {	["LunaPlayerFrame"] = {position = {x = -162, y = 90}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0}, {"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Druidbar", 0}, {"Totembar", 0}}},
+-							["LunaTargetFrame"] = {position = {x = 162, y = 90}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0},{"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}, {"Combo Bar", 1}}},
++							["LunaTargetFrame"] = {position = {x = 162, y = 90}, size = {x = 190, y = 50}, scale = 1, enabled = 1, ShowBuffs = 2, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0},{"Healthbar", 3}, {"Powerbar", 2}, {"Castbar", 2}}},
+ 							["LunaTargetTargetFrame"] = {position = {x = 0, y = 86}, size = {x = 118, y = 19}, scale = 1, enabled = 1, portrait = 0, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 0}}},
+ 							["LunaTargetTargetTargetFrame"] = {position = {x = 730, y = -20}, size = {x = 150, y = 40}, scale = 1, enabled = 0, ShowBuffs = 1, bars = {{"Healthbar", 6}, {"Powerbar", 4}}},
+ 							["LunaPartyFrames"] = {position = {x = 20, y = -100}, size = {x = 125, y = 30}, scale = 1, enabled = 1, ShowBuffs = 3, portrait = 1, pvprankicon = 1, leadericon = 1, bars = {{"Portrait", 0},{"Healthbar", 6}, {"Powerbar", 1}}},
+@@ -306,6 +306,7 @@ function LunaOptionsModule:ResetSettings()
+ 							{"","","","",""},
+ 							{"","","","",""}
+ 							}
++	LunaOptions.hbarcolor = true
+ 	LunaOptions.enableRaid = 1
+ 	if ShaguUIconfig["enableRaidFrames"] then
+ 		LunaOptions.enableRaid = 1
+@@ -3425,7 +3426,7 @@ local totemcolors = {
+ 				}
+ 
+ function LunaUnitFrames:UpdateBarTextures()
+-	local texture = LunaUnitFrames.addonPath .. BarTexturesPath .. BarTextures[LunaOptions.BarTexture]
++	local texture = "Interface\\AddOns\\ShaguUI\\img\\normTex"
+ 	
+ 	-- ExperienceBar
+ 	LunaUnitFrames.frames.ReputationBar.RepBar:SetStatusBarTexture(texture)
+-- 
+2.8.1
+

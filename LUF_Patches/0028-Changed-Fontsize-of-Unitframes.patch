@@ -1,0 +1,87 @@
+From b8b133af2984b1b95a412739f6f1e5591e924b9d Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 12 Dec 2015 18:18:05 +0100
+Subject: [PATCH 28/36] Changed Fontsize of Unitframes
+
+---
+ modules/Player.lua       | 8 ++++----
+ modules/Target.lua       | 8 ++++----
+ modules/TargetTarget.lua | 4 ++--
+ 3 files changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/modules/Player.lua b/modules/Player.lua
+index 40b0b23..30471ab 100644
+--- a/modules/Player.lua
++++ b/modules/Player.lua
+@@ -753,18 +753,18 @@ function LunaUnitFrames:CreatePlayerFrame()
+ 		local healthheight = (LunaPlayerFrame.bars["Healthbar"]:GetHeight()*textheights["Healthbar"])
+ 		LunaPlayerFrame.bars["Healthbar"].righttext:SetHeight(LunaPlayerFrame.bars["Healthbar"]:GetHeight())
+ 		LunaPlayerFrame.bars["Healthbar"].righttext:SetWidth(LunaPlayerFrame.bars["Healthbar"]:GetWidth()*(1-textbalance["Healthbar"]))
+-		LunaPlayerFrame.bars["Healthbar"].righttext:SetFont(LunaOptions.font, healthheight)
++		LunaPlayerFrame.bars["Healthbar"].righttext:SetFont(LunaOptions.font, 13)
+ 		LunaPlayerFrame.bars["Healthbar"].lefttext:SetHeight(LunaPlayerFrame.bars["Healthbar"]:GetHeight())
+ 		LunaPlayerFrame.bars["Healthbar"].lefttext:SetWidth(LunaPlayerFrame.bars["Healthbar"]:GetWidth()*textbalance["Healthbar"])
+-		LunaPlayerFrame.bars["Healthbar"].lefttext:SetFont(LunaOptions.font, healthheight)
++		LunaPlayerFrame.bars["Healthbar"].lefttext:SetFont(LunaOptions.font, 13)
+ 		
+ 		local powerheight = (LunaPlayerFrame.bars["Powerbar"]:GetHeight()*textheights["Powerbar"])
+ 		LunaPlayerFrame.bars["Powerbar"].righttext:SetHeight(LunaPlayerFrame.bars["Powerbar"]:GetHeight())
+ 		LunaPlayerFrame.bars["Powerbar"].righttext:SetWidth(LunaPlayerFrame.bars["Powerbar"]:GetWidth()*(1-textbalance["Powerbar"]))
+-		LunaPlayerFrame.bars["Powerbar"].righttext:SetFont(LunaOptions.font, powerheight)
++		LunaPlayerFrame.bars["Powerbar"].righttext:SetFont(LunaOptions.font, 10)
+ 		LunaPlayerFrame.bars["Powerbar"].lefttext:SetHeight(LunaPlayerFrame.bars["Powerbar"]:GetHeight())
+ 		LunaPlayerFrame.bars["Powerbar"].lefttext:SetWidth(LunaPlayerFrame.bars["Powerbar"]:GetWidth()*textbalance["Powerbar"])
+-		LunaPlayerFrame.bars["Powerbar"].lefttext:SetFont(LunaOptions.font, powerheight)
++		LunaPlayerFrame.bars["Powerbar"].lefttext:SetFont(LunaOptions.font, 10)
+ 		
+ 		local castheight = (LunaPlayerFrame.bars["Castbar"]:GetHeight()*textheights["Castbar"])
+ 		LunaPlayerFrame.bars["Castbar"].Text:SetHeight(LunaPlayerFrame.bars["Castbar"]:GetHeight())
+diff --git a/modules/Target.lua b/modules/Target.lua
+index 002e896..d843f54 100644
+--- a/modules/Target.lua
++++ b/modules/Target.lua
+@@ -541,20 +541,20 @@ function LunaUnitFrames:CreateTargetFrame()
+ 			LunaUnitFrames.TargetUpdateHeal(UnitName("target"))
+ 		end
+ 		local healthheight = (LunaTargetFrame.bars["Healthbar"]:GetHeight()*textheights["Healthbar"])
+-		LunaTargetFrame.bars["Healthbar"].righttext:SetFont(LunaOptions.font, healthheight)
++		LunaTargetFrame.bars["Healthbar"].righttext:SetFont(LunaOptions.font, 13)
+ 		LunaTargetFrame.bars["Healthbar"].righttext:SetHeight(LunaTargetFrame.bars["Healthbar"]:GetHeight())
+ 		LunaTargetFrame.bars["Healthbar"].righttext:SetWidth(LunaTargetFrame.bars["Healthbar"]:GetWidth()*(1-textbalance["Healthbar"]))
+-		LunaTargetFrame.bars["Healthbar"].lefttext:SetFont(LunaOptions.font, healthheight)
++		LunaTargetFrame.bars["Healthbar"].lefttext:SetFont(LunaOptions.font, 13)
+ 		LunaTargetFrame.bars["Healthbar"].lefttext:SetHeight(LunaTargetFrame.bars["Healthbar"]:GetHeight())
+ 		LunaTargetFrame.bars["Healthbar"].lefttext:SetWidth(LunaTargetFrame.bars["Healthbar"]:GetWidth()*textbalance["Healthbar"])
+ 
+ 		local powerheight = (LunaTargetFrame.bars["Powerbar"]:GetHeight()*textheights["Powerbar"])
+-		LunaTargetFrame.bars["Powerbar"].righttext:SetFont(LunaOptions.font, powerheight)
++		LunaTargetFrame.bars["Powerbar"].righttext:SetFont(LunaOptions.font, 10)
+ 		LunaTargetFrame.bars["Powerbar"].righttext:SetHeight(LunaTargetFrame.bars["Powerbar"]:GetHeight())
+ 		LunaTargetFrame.bars["Powerbar"].righttext:SetWidth(LunaTargetFrame.bars["Powerbar"]:GetWidth()*(1-textbalance["Powerbar"]))
+ 		LunaTargetFrame.bars["Powerbar"].lefttext:SetHeight(LunaTargetFrame.bars["Powerbar"]:GetHeight())
+ 		LunaTargetFrame.bars["Powerbar"].lefttext:SetWidth(LunaTargetFrame.bars["Powerbar"]:GetWidth()*textbalance["Powerbar"])
+-		LunaTargetFrame.bars["Powerbar"].lefttext:SetFont(LunaOptions.font, powerheight)
++		LunaTargetFrame.bars["Powerbar"].lefttext:SetFont(LunaOptions.font, 10)
+ 			
+ 		local castheight = (LunaTargetFrame.bars["Castbar"]:GetHeight()*textheights["Castbar"])
+ 		LunaTargetFrame.bars["Castbar"].Text:SetFont(LunaOptions.font, castheight)
+diff --git a/modules/TargetTarget.lua b/modules/TargetTarget.lua
+index ce450b8..6de6cf2 100644
+--- a/modules/TargetTarget.lua
++++ b/modules/TargetTarget.lua
+@@ -396,10 +396,10 @@ function LunaUnitFrames:CreateTargetTargetFrame()
+ 		LunaTargetTargetFrame.bars["Portrait"].model:SetHeight(LunaTargetTargetFrame.bars["Portrait"]:GetHeight()+1)
+ 		LunaTargetTargetFrame.bars["Portrait"].model:SetWidth(LunaTargetTargetFrame.bars["Portrait"]:GetWidth())
+ 		local healthheight = (LunaTargetTargetFrame.bars["Healthbar"]:GetHeight()*textheights["Healthbar"])
+-		LunaTargetTargetFrame.bars["Healthbar"].righttext:SetFont(LunaOptions.font, healthheight)
++		LunaTargetTargetFrame.bars["Healthbar"].righttext:SetFont(LunaOptions.font, 10)
+ 		LunaTargetTargetFrame.bars["Healthbar"].righttext:SetHeight(LunaTargetTargetFrame.bars["Healthbar"]:GetHeight())
+ 		LunaTargetTargetFrame.bars["Healthbar"].righttext:SetWidth(LunaTargetTargetFrame.bars["Healthbar"]:GetWidth()*(1-textbalance["Healthbar"]))
+-		LunaTargetTargetFrame.bars["Healthbar"].lefttext:SetFont(LunaOptions.font, healthheight)
++		LunaTargetTargetFrame.bars["Healthbar"].lefttext:SetFont(LunaOptions.font, 10)
+ 		LunaTargetTargetFrame.bars["Healthbar"].lefttext:SetHeight(LunaTargetTargetFrame.bars["Healthbar"]:GetHeight())
+ 		LunaTargetTargetFrame.bars["Healthbar"].lefttext:SetWidth(LunaTargetTargetFrame.bars["Healthbar"]:GetWidth()*textbalance["Healthbar"])
+ 
+-- 
+2.8.1
+

@@ -1,0 +1,75 @@
+From 62e48e6031447b199449cb459196cd4e08709efe Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sun, 6 Dec 2015 18:34:15 +0100
+Subject: [PATCH 23/36] Made a config for 4x raidzoom
+
+---
+ modules/Options.lua | 42 ++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 38 insertions(+), 4 deletions(-)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index fab95a7..09b125c 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -260,6 +260,44 @@ function LunaOptionsModule:ResetSettings()
+ 		}
+ 	end
+ 
++	if ShaguUIconfig["enableBigZoomedRaid"] then
++		LunaOptions.frames["LunaRaidFrames"]["scale"] = 1
++		LunaOptions.frames["LunaRaidFrames"]["positions"] = {
++			[1] = {
++				["x"] = 20,
++				["y"] = 150,
++			},
++			[2] = {
++				["x"] = 20,
++				["y"] = 375,
++			},
++			[3] = {
++				["x"] = 100,
++				["y"] = 150,
++			},
++			[4] = {
++				["x"] = 100,
++				["y"] = 375,
++			},
++			[5] = {
++				["x"] = 180,
++				["y"] = 150,
++			},
++			[6] = {
++				["x"] = 180,
++				["y"] = 375,
++			},
++			[7] = {
++				["x"] = 260,
++				["y"] = 150,
++			},
++			[8] = {
++				["x"] = 260,
++				["y"] = 375,
++			}
++		}
++	end
++
+ 
+ 	LunaOptions.clickcast = {
+ 							{"target","menu","","",""},
+@@ -288,13 +326,9 @@ function LunaOptionsModule:ResetSettings()
+ 	end
+ 	if ShaguUIconfig["enableShowAggro"] then
+ 		LunaOptions.aggro = 1
+-	else
+-		LunaOptions.aggro = 0
+ 	end
+ 	if ShaguUIconfig["enableHotTracker"] then
+ 		LunaOptions.frames["LunaRaidFrames"].hottracker = 1
+-	else
+-		LunaOptions.frames["LunaRaidFrames"].hottracker = 0
+ 	end
+ 	LunaOptions.PartyRange = 1
+ 	LunaOptions.RaidRange = 1
+-- 
+2.8.1
+

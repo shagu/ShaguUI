@@ -1,0 +1,13 @@
+Add more Space on Frames and theme debuffs
+# Bitte geben Sie eine Commit-Beschreibung für Ihre Änderungen ein. Zeilen,
+# die mit '#' beginnen, werden ignoriert, und eine leere Beschreibung
+# bricht den Commit ab.
+# Auf Branch master
+# Ihr Branch ist vor 'origin/master' um 35 Commits.
+#   (benutzen Sie "git push", um lokale Commits zu publizieren)
+#
+# zum Commit vorgemerkte Änderungen:
+#	geändert:       modules/Options.lua
+#	geändert:       modules/Player.lua
+#	geändert:       modules/Target.lua
+#

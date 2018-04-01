@@ -1,0 +1,52 @@
+From 675c1d74bdf2cc4cf481eaf849dd9b1338eaf281 Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:29:43 +0100
+Subject: [PATCH 19/36] Added deDE translation for combatlog rangecheck
+
+---
+ libs/ProximityLib/ProximityLib.lua | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+
+diff --git a/libs/ProximityLib/ProximityLib.lua b/libs/ProximityLib/ProximityLib.lua
+index 699ff99..6bcb93b 100644
+--- a/libs/ProximityLib/ProximityLib.lua
++++ b/libs/ProximityLib/ProximityLib.lua
+@@ -153,6 +153,35 @@ if ( GetLocale() == "koKR" ) then
+ 	}
+ end
+ 
++if ( GetLocale() == "deDE" ) then
++	events = {
++		CHAT_MSG_COMBAT_PARTY_HITS = "(%a+) trifft .+",
++		CHAT_MSG_COMBAT_FRIENDLYPLAYER_HITS = "(%a+) trifft .+",
++		CHAT_MSG_COMBAT_CREATURE_VS_SELF_HITS = { ".+ trifft (%a+) für .+", ".+ trifft (%a+) kritisch für .+" },
++		CHAT_MSG_COMBAT_CREATURE_VS_PARTY_HITS = { ".+ trifft (%a+) für .+", ".+ trifft (%a+) kritisch für .+" },
++		CHAT_MSG_COMBAT_CREATURE_VS_CREATURE_HITS = { ".+ trifft (%a+) für .+", ".+ trifft (%a+) kritisch für .+" },
++
++		CHAT_MSG_SPELL_CREATURE_VS_SELF_DAMAGE = {".+'s .+ trifft (%a+) für .+", ".+'s .+ wurde von (%a+) widerstanden."},
++		CHAT_MSG_SPELL_CREATURE_VS_PARTY_DAMAGE = {".+'s .+ trifft (%a+) für .+", ".+'s .+ wurde von (%a+) widerstanden."},
++		CHAT_MSG_SPELL_CREATURE_VS_CREATURE_DAMAGE = {".+'s .+ trifft (%a+) für .+", ".+'s .+ wurde von (%a+) widerstanden."},
++
++		CHAT_MSG_COMBAT_CREATURE_VS_PARTY_MISSES = {".+ greift an. (%a+) pariert.", ".+ greift an. (%a+) weicht aus.", ".+ greift an. (%a+) blockt.", ".+ verfehlt (%a+)."},
++
++		CHAT_MSG_SPELL_FRIENDLYPLAYER_BUFF = "(%a+)'s .+",
++		CHAT_MSG_SPELL_FRIENDLYPLAYER_DAMAGE = "(%a+)'s .+ trifft .+",
++		CHAT_MSG_SPELL_HOSTILEPLAYER_DAMAGE = ".+'s .+ trifft (%a+) für .+",
++		CHAT_MSG_SPELL_PARTY_BUFF = "(%a+)'s .+",
++		CHAT_MSG_SPELL_PARTY_DAMAGE = "(%a+)'s .+ trifft .+",
++		CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE = "%a+ erleidet %d+ %a+ von (%a+) .+",
++		CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_BUFFS = ".+ erhält %d+ Gesundheit durch (.+)'s .+",
++		CHAT_MSG_SPELL_PERIODIC_FRIENDLYPLAYER_DAMAGE = {"(%a+) erleidet %d+ .+", "(%a+) ist von .+"},
++		CHAT_MSG_SPELL_PERIODIC_HOSTILEPLAYER_DAMAGE = {"(%a+) erleidet %d+ .+", "(%a+) ist von .+"},
++		CHAT_MSG_SPELL_HOSTILEPLAYER_BUFF = {[1] = ".+ heilt (%a+) für .+", [2] = "(%a+)'s .+"},
++		CHAT_MSG_SPELL_PERIODIC_PARTY_DAMAGE = "(%a+) erleidet %d+ .+",
++		CHAT_MSG_SPELL_PERIODIC_PARTY_BUFFS = {".+ erhält %d+ Gesundheit von (.+)'s .+", "(%a+) bekommt .+" }
++	}
++end
++
+ local rosterevents = {
+ 	RAID_ROSTER_UPDATE = true,
+ 	UNIT_PET = true,
+-- 
+2.8.1
+

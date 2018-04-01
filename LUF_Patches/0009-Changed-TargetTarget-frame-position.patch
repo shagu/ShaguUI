@@ -1,0 +1,25 @@
+From fd838ce3722ef5e1803aeb6de1a9d160adcc9f8a Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:14:45 +0100
+Subject: [PATCH 09/36] Changed TargetTarget frame position
+
+---
+ modules/TargetTarget.lua | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/modules/TargetTarget.lua b/modules/TargetTarget.lua
+index 1c7e11b..ce450b8 100644
+--- a/modules/TargetTarget.lua
++++ b/modules/TargetTarget.lua
+@@ -139,7 +139,7 @@ function LunaUnitFrames:CreateTargetTargetFrame()
+ 	LunaTargetTargetFrame:SetScale(LunaOptions.frames["LunaTargetTargetFrame"].scale)
+ 	LunaTargetTargetFrame:SetBackdrop(LunaOptions.backdrop)
+ 	LunaTargetTargetFrame:SetBackdropColor(0,0,0,1)
+-	LunaTargetTargetFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", LunaOptions.frames["LunaTargetTargetFrame"].position.x, LunaOptions.frames["LunaTargetTargetFrame"].position.y)
++	LunaTargetTargetFrame:SetPoint("BOTTOM", UIParent, "BOTTOM", LunaOptions.frames["LunaTargetTargetFrame"].position.x, LunaOptions.frames["LunaTargetTargetFrame"].position.y)
+ 	LunaTargetTargetFrame:RegisterForClicks('LeftButtonUp', 'RightButtonUp', 'MiddleButtonUp', 'Button4Up', 'Button5Up')
+ 	LunaTargetTargetFrame.unit = "targettarget"
+ 	LunaTargetTargetFrame:SetScript("OnEnter", UnitFrame_OnEnter)
+-- 
+2.8.1
+

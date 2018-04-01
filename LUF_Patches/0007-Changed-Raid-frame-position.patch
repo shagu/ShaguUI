@@ -1,0 +1,36 @@
+From b6666680ec8f85abb0ae8c928b4eff6c65836d1c Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:13:33 +0100
+Subject: [PATCH 07/36] Changed Raid frame position
+
+---
+ modules/Raid.lua | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/modules/Raid.lua b/modules/Raid.lua
+index 5ff6ff5..5f4c66e 100644
+--- a/modules/Raid.lua
++++ b/modules/Raid.lua
+@@ -750,16 +750,16 @@ function LunaUnitFrames:UpdateRaidLayout()
+ 		if LunaOptions.raidinterlock then
+ 			if i == 1 then
+ 				LunaUnitFrames.frames.headers[i]:ClearAllPoints()
+-				LunaUnitFrames.frames.headers[i]:SetPoint("TOPLEFT", UIParent, "TOPLEFT", LunaOptions.frames["LunaRaidFrames"]["positions"][i].x, LunaOptions.frames["LunaRaidFrames"]["positions"][i].y)
++				LunaUnitFrames.frames.headers[i]:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", LunaOptions.frames["LunaRaidFrames"]["positions"][i].x, LunaOptions.frames["LunaRaidFrames"]["positions"][i].y)
+ 			else
+ 				LunaUnitFrames.frames.headers[i]:SetScript("OnDragStart", nil)
+ 				LunaUnitFrames.frames.headers[i]:SetMovable(0)
+ 				LunaUnitFrames.frames.headers[i]:ClearAllPoints()
+-				LunaUnitFrames.frames.headers[i]:SetPoint("TOPLEFT", LunaUnitFrames.frames.headers[i-1], "TOPRIGHT", LunaOptions.frames["LunaRaidFrames"].invertgrowth and (Padding *(-1)) or Padding, 0)
++				LunaUnitFrames.frames.headers[i]:SetPoint("BOTTOMLEFT", LunaUnitFrames.frames.headers[i-1], "TOPRIGHT", LunaOptions.frames["LunaRaidFrames"].invertgrowth and (Padding *(-1)) or Padding, 0)
+ 			end
+ 		else
+ 			LunaUnitFrames.frames.headers[i]:ClearAllPoints()
+-			LunaUnitFrames.frames.headers[i]:SetPoint("TOPLEFT", UIParent, "TOPLEFT", LunaOptions.frames["LunaRaidFrames"]["positions"][i].x, LunaOptions.frames["LunaRaidFrames"]["positions"][i].y)
++			LunaUnitFrames.frames.headers[i]:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", LunaOptions.frames["LunaRaidFrames"]["positions"][i].x, LunaOptions.frames["LunaRaidFrames"]["positions"][i].y)
+ 		end
+ 		for z=1,getn(RaidRoster[i]) do
+ 			frame = LunaUnitFrames.frames.members[numFrame]
+-- 
+2.8.1
+

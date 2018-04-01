@@ -1,0 +1,29 @@
+From ac0508ed1922d2d6423a6d31763d5b690ba080da Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sat, 5 Dec 2015 05:05:35 +0100
+Subject: [PATCH 18/36] Made Blizzard Castbar configurable
+
+---
+ modules/Options.lua | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index dbc94cf..6ecec8c 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -276,7 +276,11 @@ function LunaOptionsModule:ResetSettings()
+ 	LunaOptions.Rangefreq = 0.2
+ 	LunaOptions.Raidlayout = "GRID"
+ 	LunaOptions.EnergyTicker = 1
+-	LunaOptions.hideBlizzCastbar = 1
++	if ShaguUIconfig["enableOriginalCastbar"] then
++		LunaOptions.hideBlizzCastbar = 0
++	else
++		LunaOptions.hideBlizzCastbar = 1
++	end
+ 	LunaOptions.PartyRange = 1
+ 	LunaOptions.RaidRange = 1
+ 	LunaOptions.XPBar = 0
+-- 
+2.8.1
+

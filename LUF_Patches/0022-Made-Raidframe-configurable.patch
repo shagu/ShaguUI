@@ -1,0 +1,28 @@
+From 88b08c7673203cafe7770f96a6c9c9202684f69b Mon Sep 17 00:00:00 2001
+From: Eric Mauser <ericmauser@googlemail.com>
+Date: Sun, 6 Dec 2015 14:13:11 +0100
+Subject: [PATCH 22/36] Made Raidframe configurable
+
+---
+ modules/Options.lua | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/modules/Options.lua b/modules/Options.lua
+index b79b6e9..fab95a7 100644
+--- a/modules/Options.lua
++++ b/modules/Options.lua
+@@ -268,6 +268,11 @@ function LunaOptionsModule:ResetSettings()
+ 							{"","","","",""}
+ 							}
+ 	LunaOptions.enableRaid = 1
++	if ShaguUIconfig["enableRaidFrames"] then
++		LunaOptions.enableRaid = 1
++	else
++		LunaOptions.enableRaid = 0
++	end
+ 	if ShaguUIconfig["enablePartyinRaid"] then
+ 		LunaOptions.PartyinRaid = 1
+ 	else
+-- 
+2.8.1
+
