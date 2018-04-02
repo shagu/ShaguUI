@@ -1,5 +1,5 @@
 # Abandoned
-**This project is dead and has been superseeded by [pfUI](https://github.com/shagu/pfUI)**
+**This project is dead and has been superseeded by [pfUI](http://shagu.org/pfUI)**
 
 ## ShaguUI
 This Addon Compilation is supposed to be a static configured All-in-One User-Interface for World of Warcraft Classic (1.12.1) Clients with the goal of being the same on every PC and every screen resolution, without the need of sharing and/or modifying a bunch of "WTF" folder configs between several PCs. 
