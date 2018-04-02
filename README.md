@@ -4,7 +4,7 @@
 ## ShaguUI
 This Addon Compilation is supposed to be a static configured All-in-One User-Interface for World of Warcraft Classic (1.12.1) Clients with the goal of being the same on every PC and every screen resolution, without the need of sharing and/or modifying a bunch of "WTF" folder configs between several PCs. 
 
-![preview](http://shagu.org/archive/img/screen_to.jpg)
+![screenshot](https://raw.githubusercontent.com/shagu/ShaguAddons/master/_img/ShaguUI/screenshot.jpg)
 
 This Interface is highly inspired by TukUI and beside from the addon's code itself it includes a collection of Addons like:
 **LunaUnitFrames**, **Bartender2**, **simpleMinimap**, **Prat**, **customNameplates**, **OneBag**, **WIM** and alot of (all required) **ACE2** Libraries. 
